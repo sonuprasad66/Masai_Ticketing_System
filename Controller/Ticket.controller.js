@@ -1,5 +1,5 @@
 const express = require("express");
-const { ticketModel } = require("../models/Ticket.model");
+const { ticketModel } = require("../Models/Ticket.model");
 const { userModel } = require("../Models/User.model");
 
 const createTicket = async (req, res) => {
