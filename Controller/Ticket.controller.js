@@ -26,8 +26,17 @@ const createTicket = async (req, res) => {
 const getTicket = async (req, res) => {
   const { user_id } = req.body;
   //   console.log(user_id);
-  const ticket = await ticketModel.find({ user_id: user_id });
-  res.send(ticket);
+  //   const ticket = await ticketModel.find({ user_id: user_id });
+  //   res.send(ticket);
+
+  let { category } = req.query;
+  if (category) {
+    const ticket = await ticketModel.find({ category: category });
+    res.send(ticket);
+  } else {
+    const ticket = await ticketModel.find({ user_id: user_id });
+    res.send(ticket);
+  }
 };
 
 module.exports = {
